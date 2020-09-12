@@ -28,15 +28,18 @@ class PreviewsController < ApplicationController
 
     if @preview.title.blank? || @preview.image.blank?
       metatags = getMetaTags(@preview.url)
-      @preview.ogtype = metatags[:ogtype]
-      @preview.title = metatags[:title]
-      @preview.image = metatags[:image]
-      @preview.description = metatags[:description]
+
+      if !metatags.nil?
+        @preview.ogtype = metatags[:ogtype]
+        @preview.title = metatags[:title]
+        @preview.image = metatags[:image]
+        @preview.description = metatags[:description]
+      end
     end
 
     respond_to do |format|
       if @preview.save
-        format.html { render @preview }
+        format.html { render @preview, status: :created }
         format.json { render :show, status: :created, location: @preview }
       else
         format.html { render :new }
