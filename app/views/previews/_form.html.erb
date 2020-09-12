@@ -1,0 +1,28 @@
+<%= form_with(model: preview, id: 'new_preview') do |form| %>
+  <% if preview.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(preview.errors.count, "error") %> prohibited this preview from being saved:</h2>
+
+      <ul>
+        <% preview.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :url %>
+    <%= form.text_field :url, :class => 'form-control', :required => true %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit "Preview", data: { "disable-with": "Loading..." }, :class => 'btn btn-default' %>
+  </div>
+
+<% end %>
+
+<br/>
+<div id="result"></div>
+<br/>

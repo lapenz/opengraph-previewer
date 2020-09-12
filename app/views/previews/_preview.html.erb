@@ -1,0 +1,13 @@
+<div class="card" style="width: 38rem;">
+  <a href="<%= @preview.url %>">
+    <img src="<%= @preview.image %>" class="card-img-top" alt="<%= @preview.title %>">
+    <div class="card-body">
+      <p class="card-text"><%= URI.parse(@preview.url).host %></p>
+      <h5 class="card-title"><%= @preview.title %></h5>
+      <p class="card-text"><%= @preview.description %></p>
+    </div>
+  </a>
+</div>
+
+
+
