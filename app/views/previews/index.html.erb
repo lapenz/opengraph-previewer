@@ -19,8 +19,8 @@
     <% @previews.each do |preview| %>
       <tr>
         <td><%= preview.url %></td>
-        <td><%= link_to 'Show', preview %></td>
-        <td><%= link_to 'Destroy', preview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', preview, :class => 'btn btn-primary' %></td>
+        <td><%= link_to 'Destroy', preview, :class => 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
